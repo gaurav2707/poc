@@ -19,7 +19,7 @@ resource "aws_iam_role" "ssm_role" {
   })
 }
 
-resource "aws_iam_policy_gaurav" "ssm_policy" {
+resource "aws_iam_policy" "ssm_policy_gaurav" {
   name        = "SSMPolicy"
   description = "Allow EC2 instances to communicate with Systems Manager"
   policy      = jsonencode({
