@@ -33,7 +33,7 @@ data "aws_ami" "linux-ami" {
 module "ec2" {
   source               = "./modules/ec2"
   ami_id               = data.aws_ami.linux-ami.id  # Replace with a valid AMI ID
-  instance_type        = "t2.micro"
+  instance_type        = "t2.medium"
   security_group_id   = [module.vpc.security_group_id]
   subnet_id            = module.vpc.subnet_a_id
   iam_instance_profile = module.iam.ec2_instance_profile
