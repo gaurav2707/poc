@@ -6,7 +6,6 @@ on:
       - main
  
 permissions:
-  permissions:
   id-token: write
   contents: write
   actions: write
