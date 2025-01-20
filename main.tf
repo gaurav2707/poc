@@ -37,7 +37,7 @@ module "ec2" {
   security_group_id   = [module.vpc.security_group_id]
   subnet_id            = module.vpc.subnet_a_id
   iam_instance_profile = module.iam.ec2_instance_profile
-  instance_name        = "my-ec2-ssm-instance"
+  instance_name        = "poc-ec2-instance"
 }
 
 # resource "aws_s3_bucket" "terraform_state" {
