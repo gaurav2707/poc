@@ -12,7 +12,7 @@ module "vpc" {
 
 module "iam" {
   source          = "./modules/iam"
-  role_name       = "gaurav_poc"
+  role_name       = "EC2SSMRole"
 }
 
 data "aws_ami" "linux-ami" {
