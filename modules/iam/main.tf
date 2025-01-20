@@ -61,7 +61,7 @@ resource "aws_iam_policy" "ssm_policy_gaurav" {
 }
 
 resource "aws_iam_role_policy_attachment" "ssm_attach" {
-  policy_arn = aws_iam_policy.ssm_policy.arn
+  policy_arn = aws_iam_policy.ssm_policy_gaurav.arn
   role       = aws_iam_role.ssm_role.name
 }
 
