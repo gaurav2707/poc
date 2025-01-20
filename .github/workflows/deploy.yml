@@ -6,8 +6,10 @@ on:
       - main
  
 permissions:
+  permissions:
   id-token: write
-  contents: read
+  contents: write
+  actions: write
  
 jobs:
   deploy:
@@ -27,6 +29,13 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.0
+      - name: Configure AWS Credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+         role-to-assume: arn:aws:iam::442426854264:role/gaurav_poc
+         aws-region: us-east-2  
+         web-identity-token-file: ${{ github.event.workflow_run.pull_requests.head.sha }}
+ 
  
       - name: Terraform Init
         run: terraform init -reconfigure
