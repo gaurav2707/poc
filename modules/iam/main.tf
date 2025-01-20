@@ -66,6 +66,6 @@ resource "aws_iam_role_policy_attachment" "ssm_attach" {
 }
 
 resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "EC2SSMInstanceProfile"
+  name = "EC2SSMInstanceProfile_gaurav"
   role = aws_iam_role.ssm_role.name
 }
