@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "ssm_role" {
-  name = "EC2SSMRole"
+  name = "EC2-SSMRole"
   
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
