@@ -19,7 +19,8 @@ resource "aws_instance" "web" {
     sudo yum update -y
     sudo yum install -y amazon-ssm-agent
     sudo systemctl enable amazon-ssm-agent
-    sudo systemctl restart amazon-ssm-agent
+    sudo systemctl stop amazon-ssm-agent
+    sudo systemctl start amazon-ssm-agent
   EOT
 }
 
