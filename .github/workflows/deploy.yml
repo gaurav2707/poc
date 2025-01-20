@@ -1,4 +1,4 @@
-name: Deploy Infrastructure Workflow with  OIDC Authentication
+name: Deploy Infrastructure
  
 on:
   push:
@@ -7,8 +7,7 @@ on:
  
 permissions:
   id-token: write
-  contents: write
-  actions: write
+  contents: read
  
 jobs:
   deploy:
@@ -28,7 +27,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.0
-
+ 
       - name: Terraform Init
         run: terraform init -reconfigure
  
