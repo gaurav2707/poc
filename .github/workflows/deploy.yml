@@ -1,4 +1,4 @@
-name: Deploy Infrastructure Workflow with OIDC Auth
+name: Deploy Infrastructure Workflow with OIDC Authentication
  
 on:
   push:
