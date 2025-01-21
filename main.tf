@@ -17,8 +17,8 @@ module "iam" {
 
 data "aws_ami" "linux-ami" {
   filter {
-    name   = "name"
-    values = ["amzn2-ami-amd-hvm-2.0.20230727.0-x86_64-gp2"]
+    name   = "id"
+    values = ["ami-002acc74c401fa86b"]
 
   }
   filter {
@@ -26,7 +26,7 @@ data "aws_ami" "linux-ami" {
     values = ["hvm"]
   }
   most_recent = true
-  owners      = ["amazon"]
+  owners      = ["redhat"]
 }
 
 
