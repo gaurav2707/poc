@@ -26,7 +26,7 @@ resource "aws_iam_policy" "ssm_policy" {
     Version = "2012-10-17"
     Statement = [
       {
-        Action = [
+				Action = [
                 "ssm:DescribeAssociation",
                 "ssm:GetDeployablePatchSnapshotForInstance",
                 "ssm:GetDocument",
@@ -41,8 +41,16 @@ resource "aws_iam_policy" "ssm_policy" {
                 "ssm:PutConfigurePackageResult",
                 "ssm:UpdateAssociationStatus",
                 "ssm:UpdateInstanceAssociationStatus",
+				        "ssm:PutParameter",
+                "ec2messages:*",
+                "ssmmessages:*",
+                "logs:*",
+                "ssm:GetCommandInvocation",
+                "ssm:ListCommands",
+                "ssm:SendCommand",	
                 "ssm:UpdateInstanceInformation"
-        ]
+        ]        
+
         Effect = "Allow"
         Resource = "*"
       },
