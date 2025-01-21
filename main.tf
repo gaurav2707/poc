@@ -18,7 +18,7 @@ module "iam" {
 data "aws_ami" "linux-ami" {
   filter {
     name   = "name"
-    values = ["amzn2-ami-amd-hvm-2.0.20230727.0-x86_64-gp2"]
+    values = ["RHEL-9.5.0_HVM-20241211-x86_64-0-Hourly2-GP3"]
 
   }
   filter {
