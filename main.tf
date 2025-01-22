@@ -18,7 +18,7 @@ module "iam" {
 data "aws_ami" "linux-ami" {
   filter {
     name   = "name"
-    values = ["golden_image_gaurav"]
+    values = ["al2023-ami-2023.6.20250115.0-kernel-6.1-x86_64"]
 
   }
   filter {
@@ -26,7 +26,7 @@ data "aws_ami" "linux-ami" {
     values = ["hvm"]
   }
   most_recent = true
-  owners      = ["442426854264"]
+  owners      = ["amazon"]
 }
 
 
