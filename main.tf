@@ -26,7 +26,7 @@ data "aws_ami" "linux-ami" {
     values = ["hvm"]
   }
   most_recent = true
-  owners      = ["amazon"]
+  owners      = ["442426854264"]
 }
 
 
