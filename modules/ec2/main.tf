@@ -20,7 +20,7 @@ resource "aws_instance" "web" {
     sudo systemctl enable amazon-ssm-agent
     sudo systemctl stop amazon-ssm-agent
     sudo systemctl start amazon-ssm-agent
-  EOT
+  EOF
 }
 
 
