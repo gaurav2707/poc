@@ -18,7 +18,7 @@ module "iam" {
 data "aws_ami" "linux-ami" {
   filter {
     name   = "name"
-    values = ["al2023-ami-2023.6.20250115.0-kernel-6.1-x86_64"]
+    values = ["golden_image_gaurav"]
 
   }
   filter {
