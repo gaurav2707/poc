@@ -8,6 +8,7 @@ module "vpc" {
   vpc_name        = "gaurav-poc-vpc"
   subnet_a_cidr   = "10.0.1.0/24"
   az_a            = "us-east-2a"
+  subnet_b_cidr   = "10.0.2.0/24"
 }
 
 module "iam" {
