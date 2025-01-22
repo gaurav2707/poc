@@ -96,17 +96,12 @@ resource "aws_security_group" "ec2_sg" {
 
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # No inbound access allowed
-  }
-  ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # No inbound access allowed
+    cidr_blocks = [aws_vpc.main.cidr_block] # No inbound access allowed
   }
+  
   egress {
     from_port   = 0
     to_port     = 0
@@ -119,7 +114,7 @@ output "vpc_id" {
   value = aws_vpc.main.id
 }
 
-output "security_group_id" {
-  value = aws_security_group.ec2_sg.id
+ #output "security_group_id" {
+  # value = aws_security_group.ec2_sg.id
   
-}
+ #}
