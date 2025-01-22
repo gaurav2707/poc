@@ -105,7 +105,7 @@ resource "aws_route_table_association" "private_rt_assoc" {
 
 resource "aws_vpc_endpoint" "ssm" {
   vpc_id             = aws_vpc.main.id
-  service_name       = "com.amazonaws.us-east-1.ssm"
+  service_name       = "com.amazonaws.us-east-2.ssm"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = [aws_subnet.subnet-a.id]
   security_group_ids = [aws_security_group.ec2_sg.id]
@@ -113,7 +113,7 @@ resource "aws_vpc_endpoint" "ssm" {
 
 resource "aws_vpc_endpoint" "ec2messages" {
   vpc_id             = aws_vpc.main.id
-  service_name       = "com.amazonaws.us-east-1.ec2messages"
+  service_name       = "com.amazonaws.us-east-2.ec2messages"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = [aws_subnet.subnet-a.id]
   security_group_ids = [aws_security_group.ec2_sg.id]
@@ -121,7 +121,7 @@ resource "aws_vpc_endpoint" "ec2messages" {
 
 resource "aws_vpc_endpoint" "ssmmessages" {
   vpc_id             = aws_vpc.main.id
-  service_name       = "com.amazonaws.us-east-1.ssmmessages"
+  service_name       = "com.amazonaws.us-east-2.ssmmessages"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = [aws_subnet.subnet-a.id]
   security_group_ids = [aws_security_group.ec2_sg.id]
@@ -129,7 +129,7 @@ resource "aws_vpc_endpoint" "ssmmessages" {
 
 resource "aws_vpc_endpoint" "s3" {
   vpc_id             = aws_vpc.main.id
-  service_name       = "com.amazonaws.us-east-1.s3"
+  service_name       = "com.amazonaws.us-east-2.s3"
   vpc_endpoint_type  = "Interface"
   subnet_ids         = [aws_subnet.subnet-a.id]
   security_group_ids = [aws_security_group.ec2_sg.id]
