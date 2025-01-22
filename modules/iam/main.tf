@@ -11,9 +11,12 @@ resource "aws_iam_role" "ssm_role" {
       {
         Action = "sts:AssumeRole"
         Effect = "Allow"
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
+        Principal = 
+          Service = [
+          "ec2.amazonaws.com",
+          "ssm.amazonaws.com",
+          "backup.amazonaws.com"
+        ]
       }
     ]
   })
@@ -68,6 +71,22 @@ resource "aws_iam_policy" "ssm_policy" {
   })
 }
 
+resource "aws_iam_role_policy_attachment" "ssm_role_policy" {
+  role       = aws_iam_role.ssm_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  depends_on = [aws_iam_role.ssm_role]
+}
+# Attach AmazonSSMFullAccess policy to the role
+resource "aws_iam_role_policy_attachment" "ssm_role_policy_ssm" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+  role       = aws_iam_role.ssm_role.name
+  depends_on = [aws_iam_role.ssm_role]
+}
+# Attach AmazonFullAccess policy to the role
+resource "aws_iam_role_policy_attachment" "ssm_role_policy_admin" {
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+  role       = aws_iam_role.ssm_role.name
+  depends_on = [aws_iam_role.ssm_role]
 resource "aws_iam_role_policy_attachment" "ssm_attach" {
   policy_arn = aws_iam_policy.ssm_policy.arn
   role       = aws_iam_role.ssm_role.name
