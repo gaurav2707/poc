@@ -4,7 +4,7 @@ provider "aws" {
 
 ########## Role for attaching ec2 instances created  #########
 resource "aws_iam_role" "ssm_role" {
-  name = "${var.environment}-EC2-SSM-Role"
+  name = "EC2-SSMRole"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
