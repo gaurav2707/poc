@@ -159,7 +159,12 @@ resource "aws_security_group" "ec2_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] # No inbound access allowed
   }
-
+  ingress {
+    from_port   = 1500
+    to_port     = 1500
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # No inbound access allowed
+  }
   egress {
     from_port   = 0
     to_port     = 0
